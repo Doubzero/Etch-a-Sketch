@@ -1,15 +1,27 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 }
 #container {
   display: flex;
+  margin: 0 auto;
   flex-wrap: wrap;
   max-width: 500px;
   max-height: 500px;
+}
+#eraseBtn {
+  height: 50px;
+  width: 100px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  cursor: pointer;
 }
 #container > div {
   border: 1px solid black;

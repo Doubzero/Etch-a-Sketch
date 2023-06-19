@@ -1,4 +1,7 @@
 const container = document.getElementById("container");
+const eraseButton = document.getElementById("eraseBtn");
+
+eraseButton.onclick = () => eraseGrid();
 
 function createGrid() {
   for (let i = 0; i < 256; i++) {
@@ -13,5 +16,9 @@ function colorChange(e) {
   if (e.type === "mouseover") {
     e.target.style.backgroundColor = "black";
   }
+}
+function eraseGrid() {
+  container.innerHTML = "";
+  createGrid();
 }
 createGrid();
