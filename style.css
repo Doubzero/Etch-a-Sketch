@@ -8,23 +8,26 @@ body {
   flex-direction: column;
   text-align: center;
 }
-#container {
+#gridlayout {
+  display: grid;
+  margin: 0 auto;
+  width: 500px;
+  height: 500px;
+}
+
+#gridlayout > div {
+  border: 1px solid black;
+}
+#button-menu {
   display: flex;
   margin: 0 auto;
-  flex-wrap: wrap;
-  max-width: 500px;
-  max-height: 500px;
+  gap: 10px;
 }
-#eraseBtn {
+
+#button-menu > button {
   height: 50px;
   width: 100px;
-  margin: 0 auto;
   margin-bottom: 20px;
   margin-top: 20px;
   cursor: pointer;
-}
-#container > div {
-  border: 1px solid black;
-  height: 30px;
-  width: 30px;
 }
