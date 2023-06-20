@@ -20,8 +20,8 @@ function createGrid(size) {
   for (let i = 0; i < size * size; i++) {
     const gridElement = document.createElement("div");
     gridElement.classList.add("grid-cell");
+    gridElement.addEventListener("click", colorChange);
     gridElement.addEventListener("mouseover", colorChange);
-    gridElement.addEventListener("mousedown", colorChange);
     container.appendChild(gridElement);
   }
 }
@@ -44,16 +44,16 @@ function changeSize() {
     reloadGrid();
   }
 }
-let mouseDown = false;
+//
+mouseDown = false;
 document.body.onmousedown = () => (mouseDown = true);
 document.body.onmouseup = () => (mouseDown = false);
-
 function colorChange(e) {
   if (e.type === "mouseover" && !mouseDown) return;
   if (currentMode === "rainbow") {
-    const redRandom = Math.floor(Math.random() * 256);
-    const blueRandom = Math.floor(Math.random() * 256);
-    const greenRandom = Math.floor(Math.random() * 256);
+    let redRandom = Math.floor(Math.random() * 256);
+    let blueRandom = Math.floor(Math.random() * 256);
+    let greenRandom = Math.floor(Math.random() * 256);
     e.target.style.backgroundColor = `rgb(${redRandom}, ${greenRandom}, ${blueRandom})`;
   } else if (currentMode === "defaultmode") {
     e.target.style.backgroundColor = "black";

@@ -34,3 +34,6 @@ body {
 button.active {
   transform: scale(5);
 }
+.grid-cell {
+  user-select: none;
+}
