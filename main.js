@@ -1,9 +1,12 @@
 const DEFAULT_SIZE = 16;
+const DEFAULT_MODE = "color";
 let currentSize = DEFAULT_SIZE;
+let currentMode = DEFAULT_MODE;
 
 const container = document.getElementById("gridlayout");
 const eraseButton = document.getElementById("resetBtn");
 const changeSizeButton = document.getElementById("selectsizebtn");
+const colorButton = document.getElementById("colormode");
 
 eraseButton.onclick = () => reloadGrid();
 changeSizeButton.onclick = () => changeSize();
@@ -15,8 +18,13 @@ function createGrid(size) {
     const gridElement = document.createElement("div");
     gridElement.classList.add("grid-cell");
     gridElement.addEventListener("mouseover", colorChange);
+    gridElement.addEventListener("mousedown", colorChange);
     container.appendChild(gridElement);
   }
+}
+
+function setCurrentMode(newMode) {
+  currentMode = newMode;
 }
 
 function setCurrentSize(newSize) {
