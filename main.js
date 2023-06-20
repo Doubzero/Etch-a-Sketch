@@ -1,15 +1,18 @@
 const DEFAULT_SIZE = 16;
-const DEFAULT_MODE = "color";
+const DEFAULT_MODE = "defaultmode";
 let currentSize = DEFAULT_SIZE;
 let currentMode = DEFAULT_MODE;
 
 const container = document.getElementById("gridlayout");
 const eraseButton = document.getElementById("resetBtn");
 const changeSizeButton = document.getElementById("selectsizebtn");
-const colorButton = document.getElementById("colormode");
+const randomColorButton = document.getElementById("randomColorModeBtn");
+const regularMode = document.getElementById("defaultModeBtn");
 
 eraseButton.onclick = () => reloadGrid();
 changeSizeButton.onclick = () => changeSize();
+randomColorButton.onclick = () => setCurrentMode("rainbow");
+regularMode.onclick = () => setCurrentMode("defaultmode");
 
 function createGrid(size) {
   container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -41,9 +44,18 @@ function changeSize() {
     reloadGrid();
   }
 }
+let mouseDown = false;
+document.body.onmousedown = () => (mouseDown = true);
+document.body.onmouseup = () => (mouseDown = false);
 
 function colorChange(e) {
-  if (e.type === "mouseover") {
+  if (e.type === "mouseover" && !mouseDown) return;
+  if (currentMode === "rainbow") {
+    const redRandom = Math.floor(Math.random() * 256);
+    const blueRandom = Math.floor(Math.random() * 256);
+    const greenRandom = Math.floor(Math.random() * 256);
+    e.target.style.backgroundColor = `rgb(${redRandom}, ${greenRandom}, ${blueRandom})`;
+  } else if (currentMode === "defaultmode") {
     e.target.style.backgroundColor = "black";
   }
 }
