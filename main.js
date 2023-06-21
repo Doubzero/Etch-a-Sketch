@@ -35,9 +35,11 @@ function setCurrentSize(newSize) {
 }
 
 function changeSize() {
-  const size = prompt("Change size (max 100)");
-  if (size > 100) {
-    alert("cannot be greater than 100. Setting Default size of 16");
+  const size = prompt("Select size (max 100)");
+  if (size > 100 || size === null) {
+    alert(
+      "Cannot be greater than 100 \nOR \nNo size selected. \nReloading original grid."
+    );
     reloadGrid();
   } else {
     setCurrentSize(size);
