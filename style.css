@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,12 +9,18 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
+  background-color: bisque;
+}
+h1 {
+  font-family: "Amatic SC", cursive;
+  font-size: 60px;
 }
 #gridlayout {
   display: grid;
   margin: 0 auto;
   width: 500px;
   height: 500px;
+  background-color: white;
 }
 
 #gridlayout > div {
@@ -26,11 +34,18 @@ body {
 
 #button-menu > button {
   height: 50px;
-  width: 100px;
+  width: 130px;
   margin-bottom: 20px;
   margin-top: 20px;
   cursor: pointer;
+  border-radius: 50px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  font-family: "Amatic SC", cursive;
+  font-size: 19px;
 }
+
 button.active {
   transform: scale(5);
 }
