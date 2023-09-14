@@ -1,3 +1,11 @@
 # Etch-a-Sketch
 
-Etch-a-sketch made in HTML,CSS, and javaScript.
+##Short Description. 
+First project that involved Javascript. 
+
+##Tech Used 
+-HTML
+-CSS
+-JavaScript
+
+[Live Preview](https://doubzero.github.io/Etch-a-Sketch/).
